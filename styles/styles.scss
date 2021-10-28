@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
+
+$font-family: 'Trocchi', sans-serif;
+
+$light-blue: #e2f3f6;
+$dark-blue: #141f45;
+$light-blue-2: #7fd4f9;
+$white: #fff;
+$aboutme-gray: #f6f0f0;
+
+$p-top: 2em;
+$p-other: 5em;
+
+@mixin flex-container {
+  display: flex;
+}
+
+@mixin title {
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+@mixin p-container {
+  padding-top: $p-top;
+  padding-bottom: $p-other;
+  padding-left: $p-other;
+  padding-right: $p-other;
+}
+
+* {
+  font: 100% $font-family;
+  font-size: 20pt;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+ul {
+  width: inherit;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#home {
+  @include flex-container;
+  @include p-container;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  padding-bottom: 0;
+  background-image: url('../images/home_bg.jpg');
+  background-color: #010230;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
+.home {
+  &__menu {
+    ul {
+      @include flex-container;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &__container {
+    height: 100%;
+    @include flex-container;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    @include title;
+  }
+}
+
+#about-me {
+  background-color: $dark-blue;
+  color: $white;
+  @include p-container;
+  @include flex-container;
+  z-index: -2;
+  position: relative;
+
+  img {
+    max-width: 60%;
+  }
+}
+
+.about-me {
+  &__title {
+    @include title;
+  }
+
+  &__left {
+    float: left;
+    @include flex-container;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__right {
+    float: right;
+    max-width: 60%;
+  }
+
+  &__bg {
+    background-color: $aboutme-gray;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+  }
+}
+
+#projects {
+  @include p-container;
+}
+
+.projects {
+  &__title {
+    @include title;
+  }
+}
+
+#resume {
+  @include p-container;
+}
+
+.resume {
+  &__title {
+    @include title;
+  }
+}
+
+#certificates {
+  background-color: $light-blue-2;
+  @include p-container;
+  text-align: center;
+}
+
+.certificates {
+  &__title {
+    @include title;
+  }
+
+  img {
+    width: 20%;
+  }
+}
+
+#get-in-touch {
+  background-color: $light-blue;
+  @include p-container;
+}
+
+.get-in-touch {
+  &__title {
+    @include title;
+    text-align: center;
+  }
+
+  &__container {
+    @include flex-container;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__left {
+    float: left;
+  }
+
+  &__right {
+    float: right;
+  }
+}
